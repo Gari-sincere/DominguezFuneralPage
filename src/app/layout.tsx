@@ -30,8 +30,8 @@ export default function RootLayout({
   modal: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
-      <CSPostHogProvider>
+    // <ClerkProvider>
+      // <CSPostHogProvider>
         <html lang="en">
           <NextSSRPlugin
             /**
@@ -52,7 +52,7 @@ export default function RootLayout({
             <Toaster />
           </body>
         </html>
-      </CSPostHogProvider>
-    </ClerkProvider>
+      // </CSPostHogProvider>
+    // </ClerkProvider>
   );
 }
