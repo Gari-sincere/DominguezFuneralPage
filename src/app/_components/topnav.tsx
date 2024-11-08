@@ -7,13 +7,13 @@ export function TopNav() {
       <div>Gallery</div>
 
       <div className="flex flex-row items-center gap-4">
-        <SignedOut>
-          <SignInButton />
-        </SignedOut>
-        <SignedIn>
+        {/* <SignedOut> */}
+          {/* <SignInButton /> */}
+        {/* </SignedOut> */}
+        {/* <SignedIn> */}
           <SimpleUploadButton />
-          <UserButton />
-        </SignedIn>
+          {/* <UserButton /> */}
+        {/* </SignedIn> */}
       </div>
     </nav>
   );

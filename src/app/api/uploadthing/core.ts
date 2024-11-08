@@ -8,20 +8,21 @@ import { ratelimit } from "~/server/ratelimit";
 const f = createUploadthing();
 
 export const ourFileRouter = {
-  imageUploader: f({ image: { maxFileSize: "4MB", maxFileCount: 40 } })
-    .middleware(async ({ req }) => {
-      const user = auth();
-      if (!user.userId) throw new UploadThingError("Unauthorized");
+  imageUploader: f(
+    { image: { maxFileSize: "4MB", maxFileCount: 40 } }
+  ).middleware(async ({ req }) => {
+      // const user = auth();
+      // if (!user.userId) throw new UploadThingError("Unauthorized");
 
-      const fullUserData = await clerkClient.users.getUser(user.userId);
+      // const fullUserData = await clerkClient.users.getUser(user.userId);
 
-      if (fullUserData?.privateMetadata?.["can-upload"] !== true)
-        throw new UploadThingError("User Does Not Have Upload Permissions");
+      // if (fullUserData?.privateMetadata?.["can-upload"] !== true)
+        // throw new UploadThingError("User Does Not Have Upload Permissions");
 
-      const { success } = await ratelimit.limit(user.userId);
-      if (!success) throw new UploadThingError("Ratelimited");
+      // const { success } = await ratelimit.limit(user.userId);
+      // if (!success) throw new UploadThingError("Ratelimited");
 
-      return { userId: user.userId };
+      return { userId: ""};
     })
     .onUploadComplete(async ({ metadata, file }) => {
       await db.insert(images).values({
